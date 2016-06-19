@@ -1,0 +1,51 @@
+.section-title {
+  border-bottom: 2px solid #199F93;
+  margin-top: 0;
+  text-align: center;
+}
+
+/* Workout Cards */
+.workout-card {
+  text-align: center;
+  max-width: 500px;
+}
+
+.workout-card p {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.checkbox {
+  margin-left: 5px;
+  padding-right: 10px;
+  margin-top: 5px;
+}
+
+.workout-title {
+  text-align: center;
+  margin-bottom: 30px !important;
+}
+
+.title-label {
+  float: right;
+}
+
+.grey{
+  background-color: #5A5959;
+}
+
+md-card {
+  box-shadow: 0 1px 3px 0 teal,0 1px 1px 0 teal,0 2px 1px -1px teal;
+}
+
+md-divider {
+  border-color: teal;
+}
+
+/* Diet Section */
+
+.diet-section {
+  margin-top: 50px;
+  top: 0;
+  min-width: 50%;
+}

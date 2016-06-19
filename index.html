@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <!-- By Michael Mitrakos -->
+
+<head>
+
+  <!-- Place these first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page title (mandatory) -->
+  <title>Mitrakos Fitness</title>
+
+  <!-- These meta tags are recognised by Google -->
+  <meta name="description" content="The workouts and diet of Mike Mitrakos">
+  <meta name="robots" content="robots.txt">
+
+  <!-- Site styles and authors -->
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+  <link href="styles/style.css" rel="stylesheet">
+  <link href="humans.txt" rel="author">
+
+  <!-- HTML5 shim for older version of IE -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Open Graph protocol  -->
+  <meta property="og:title" content="Mitrakos Fitness">
+  <meta property="og:type" content="https://www.mitrakosfitness.com">
+  <meta property="og:image" content="https://example.com/image.jpg">
+  <meta property="og:url" content="https://mitrakosfitness.com">
+  <meta property="og:description" content="Description">
+  <meta property="og:site_name" content="Site name">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="Author name">
+
+</head>
+
+<body ng-app="MitrakosFitnessApp" ng-controller="WorkoutCtrl" ng-cloak>
+
+  <div layout="row" layout-xs="column">
+    <div flex>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <!-- Could ng-repeat one workouts objects that would include the md-tab label -->
+
+        <!-- Chest Section -->
+        <md-tab label="Chest">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Chest</h1>
+    				<div ng-repeat="chestWorkout in chestWorkouts" layout-xs="column" layout-padding layout-margin>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{chestWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{chestWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{chestWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{chestWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{chestWorkout.notes}}</p><br>
+                </md-card>
+            </div>
+          </md-content>
+        </md-tab>
+
+        <!-- Back Section -->
+        <md-tab label="Back">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Back</h1>
+    				<div ng-repeat="backWorkout in backWorkouts" layout-xs="column" layout-padding layout-margin>
+              <div flex>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{backWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{backWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{backWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{backWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{backWorkout.notes}}</p><br>
+                </md-card>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+
+        <!-- Arms Section -->
+        <md-tab label="Arms">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Arms</h1>
+    				<div ng-repeat="armWorkout in armWorkouts" layout-xs="column" layout-padding layout-margin>
+              <div flex>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{armWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{armWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{armWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{armWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{armWorkout.notes}}</p><br>
+                </md-card>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+
+        <!-- Shoulders Section -->
+        <md-tab label="Shoulders">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Shoulders</h1>
+    				<div ng-repeat="shoulderWorkout in shoulderWorkouts" layout-xs="column" layout-padding layout-margin>
+              <div flex>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{shoulderWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{shoulderWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{shoulderWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{shoulderWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{shoulderWorkout.notes}}</p><br>
+                </md-card>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+
+        <!-- Legs Section -->
+        <md-tab label="Legs">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Legs</h1>
+    				<div ng-repeat="legWorkout in legWorkouts" layout-xs="column" layout-padding layout-margin>
+              <div flex>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{legWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{legWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{legWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{legWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{legWorkout.notes}}</p><br>
+                </md-card>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+
+
+        <!-- Abs Section -->
+        <md-tab label="Abs" layout="row">
+          <md-content class="md-padding">
+            <h1 class="md-display-2 section-title">Abs</h1>
+    				<div ng-repeat="abWorkout in abWorkouts" layout-xs="column" layout-padding layout-margin>
+              <div flex>
+                <md-card class="workout-card" ng-init="item.isgrey = false" ng-class="{grey : item.isgrey}">
+                  <div layout="row" class="checkbox" layout-align="center">
+                    <md-checkbox class="checkbox" ng-click="item.isgrey = !item.isgrey" aria-label="Complete"></md-checkbox>
+                    <h3 class="md-title workout-title"><strong>{{abWorkout.name}}</strong></h3>
+                  </div>
+                  <md-divider></md-divider><br>
+                  <p><strong>Sets:</strong> {{abWorkout.sets}}</p>
+                  <p><strong>Reps:</strong> {{abWorkout.reps}}</p>
+                  <p><strong>Rest Time:</strong> {{abWorkout.restTime}}</p>
+                  <p><strong>Notes:</strong> {{abWorkout.notes}}</p><br>
+                </md-card>
+              </div>
+            </div>
+          </md-content>
+        </md-tab>
+
+      </md-tabs>
+    </div>
+    <div flex>
+      <md-content class="md-padding diet-section">
+        <h1 class="md-display-2 section-title">Diet</h1>
+        <div layout-xs="column" layout-padding layout-margin>
+          <div flex>
+            <md-card class="workout-card">
+              <h3 class="md-title"><strong>Meal One</strong></h3>
+              <md-divider></md-divider><br>
+              <p>1 Whole Egg</p>
+              <p>2 Egg Whites</p>
+              <p>100g Quaker Oats</p>
+              <p>1 Orange</p><br>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card class="workout-card">
+              <h3 class="md-title"><strong>Meal Two</strong></h3>
+              <md-divider></md-divider><br>
+              <p>1 Apple</p>
+              <p>Handful Almonds</p><br>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card class="workout-card">
+              <h3 class="md-title"><strong>Meal Three</strong></h3>
+              <md-divider></md-divider><br>
+              <p><a target="_blank" href="http://allrecipes.com/recipe/228612/greek-salad-the-best/">Greek Salad</a></p>
+              <p>1 Chicken Breast</p>
+              <p>50g Brown Rice</p><br>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card class="workout-card">
+              <h3 class="md-title"><strong>Meal Four</strong></h3>
+              <md-divider></md-divider><br>
+              <p>1 Chicken Breast</p>
+              <p>Spinach </p>
+              <p>Peppers</p><br>
+            </md-card>
+          </div>
+          <div flex>
+            <md-card class="workout-card">
+              <h3 class="md-title"><strong>Post-Workout Shake</strong></h3>
+              <md-divider></md-divider><br>
+              <p>35g Whey Isolate</p>
+              <p>2g Glutamine</p>
+              <p>2g L-Arginine</p><br>
+            </md-card>
+          </div>
+        </div>
+      </md-content>
+    </div>
+  </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    angular.module('MitrakosFitnessApp', ['ngMaterial']);
+  </script>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
